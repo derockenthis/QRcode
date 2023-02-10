@@ -1,3 +1,4 @@
+'use strict';
 const express = require("express");
 const fileUpload = require('express-fileupload');
 const serverless = require('serverless-http');
@@ -60,4 +61,5 @@ app.post('/upload/:userkey', upload.single("image"),async(req, res) => {
 // app.listen(3000, () => {
 //     console.log("Expresss server running...")
 //     } )
+module.exports = app;
 module.exports.handler = serverless(app);
