@@ -1,4 +1,3 @@
-'use strict';
 const express = require("express");
 const fileUpload = require('express-fileupload');
 const serverless = require('serverless-http');
@@ -6,21 +5,32 @@ const fetch = require('node-fetch');
 
 const multer  = require('multer')
 const upload = multer({ dest: 'uploads/' })
-const {uploadFile,deleteFile,getFileStream,getKey} = require('./s3');
+const {uploadFile,deleteFile,getFileStream,getKey} = require('../s3');
 
 // const cors = require("cors")
 
 const app = express();
+
 const cors = require("cors")
 app.use(cors())
+
+
 // app.use(cors())
 
+const router = express.Router();
+
+app.engine('ejs', require('ejs').__express);
 app.set("view engine", "ejs");
+
 app.use(express.static("public"));
-app.get('/', (req, res) => {
-    res.render('home')
+
+app.use('/.netlify/functions/index',router)
+//router and app are used interchangably
+router.get('/', (req, res) => {
+    res.render('home',{"key":"none"})
  });
-app.get('/:userkey', (req, res) => {
+
+router.get('/:userkey', (req, res) => {
     req.params; 
     let data = req.params;
     console.log(data.userkey)
@@ -61,5 +71,4 @@ app.post('/upload/:userkey', upload.single("image"),async(req, res) => {
 // app.listen(3000, () => {
 //     console.log("Expresss server running...")
 //     } )
-module.exports = app;
 module.exports.handler = serverless(app);
