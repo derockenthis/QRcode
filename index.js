@@ -1,6 +1,6 @@
 const express = require("express");
 const fileUpload = require('express-fileupload');
-
+const serverless = require('serverless-http');
 const fetch = require('node-fetch');
 
 const multer  = require('multer')
@@ -57,6 +57,7 @@ app.post('/upload/:userkey', upload.single("image"),async(req, res) => {
     res.sendStatus(200);
 });
  //start server
-app.listen(3000, () => {
-    console.log("Expresss server running...")
-    } )
+// app.listen(3000, () => {
+//     console.log("Expresss server running...")
+//     } )
+module.exports.handler = serverless(app);
