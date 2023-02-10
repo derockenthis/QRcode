@@ -37,7 +37,7 @@ router.get('/:userkey', (req, res) => {
     req.params; 
     let data = req.params;
     console.log(data.userkey)
-    res.render('home'.{"key":data.userkey})
+    res.render('home',{"key":data.userkey})
 });
 app.get('/getImage/:userKey',async(req, res) => {
     const key = req.params.userKey
