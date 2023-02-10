@@ -34,6 +34,7 @@ router.get('/', (req, res) => {
  });
 
 router.get('/:userkey', (req, res) => {
+    req.params; 
     res.json({
         "hey":"turnup"
     })
