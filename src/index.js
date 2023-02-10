@@ -35,6 +35,8 @@ router.get('/', (req, res) => {
 
 router.get('/:userkey', (req, res) => {
     req.params; 
+    let data = req.params;
+    console.log(data.userkey)
     res.json({
         "hey":"turnup"
     })
