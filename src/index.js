@@ -27,7 +27,10 @@ app.use(express.static("public"));
 app.use('/.netlify/functions/index',router)
 //router and app are used interchangably
 router.get('/', (req, res) => {
-    res.render('home',{"key":"none"})
+    // res.render('home',{"key":"none"})
+    res.json({
+        "hey":"turnup"
+    })
  });
 
 router.get('/:userkey', (req, res) => {
