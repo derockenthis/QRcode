@@ -3,3 +3,8 @@
 
 [dev]
   publish = "dist"
+
+[[redirects]]
+  to="/.netlify/functions/index/:splat"
+  from="/*"
+  status=200
