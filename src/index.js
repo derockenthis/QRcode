@@ -4,7 +4,7 @@ const serverless = require('serverless-http');
 const fetch = require('node-fetch');
 
 const multer  = require('multer')
-const upload = multer({ dest: 'tmp/' })
+const upload = multer({ dest: '/tmp/' })
 const {uploadFile,deleteFile,getFileStream,getKey} = require('../s3');
 
 // const cors = require("cors")
