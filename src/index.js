@@ -34,9 +34,9 @@ router.get('/', (req, res) => {
  });
 
 router.get('/:userkey', (req, res) => {
-    req.params; 
-    let data = req.params;
-    console.log(data.userkey)
+    // req.params; 
+    // let data = req.params;
+    // console.log(data.userkey)
     res.render('index')
 });
 
