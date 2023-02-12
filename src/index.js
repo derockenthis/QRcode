@@ -26,9 +26,8 @@ router.get('/', (req, res) => {
     // res.json({
     //     "hey":"testing"
     // })
-    console.log('Current directory: ' + process.cwd());
-    // res.sendFile("views/index.html",{ root: "." });
-    res.send("HELLO")
+    res.sendFile("views/index.html",{ root: ".." });
+    // res.send("HELLO")
  });
 
 router.get('/:userkey', (req, res) => {
