@@ -27,6 +27,9 @@ app.use(express.static("public"));
 
 //router and app are used interchangably
 router.get('/', (req, res) => {
+    res.json({
+        "hey":"testing"
+    })
     // res.render('home',{"key":"none"})
  });
 
