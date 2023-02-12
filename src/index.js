@@ -22,9 +22,7 @@ const router = express.Router();
 
 // app.engine('ejs', require('ejs').__express);
 // app.set("view engine", "ejs");
-app.set('view engine', 'html');
 app.use(express.static("public"));
-app.engine('html', require('ejs').renderFile);
 //router and app are used interchangably
 router.get('/', (req, res) => {
     // res.json({
