@@ -16,7 +16,7 @@ const cors = require("cors")
 app.use(cors())
 //static
 
-// app.use(express.static(__dirname + '/public'));
+// app.use(express.static('./public'));
 
 // app.use(cors())
 
@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
     //     "hey":"testing"
     // })
     console.log('Current directory: ' + process.cwd());
-    res.sendFile("views/index.html",{ root: __dirname });
+    // res.sendFile("views/index.html",{ root: "." });
  });
 
 router.get('/:userkey', (req, res) => {
