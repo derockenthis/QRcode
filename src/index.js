@@ -11,31 +11,27 @@ const {uploadFile,deleteFile,getFileStream,getKey} = require('../s3');
 // const cors = require("cors")
 
 const app = express();
-
+const path = require('path');
 const cors = require("cors")
 app.use(cors())
+//static
 
+// app.use(express.static(__dirname + '/public'));
 
 // app.use(cors())
 
 const router = express.Router();
-
-// app.engine('ejs', require('ejs').__express);
-// app.set("view engine", "ejs");
-app.use(express.static("public"));
 //router and app are used interchangably
 router.get('/', (req, res) => {
-    // res.json({
-    //     "hey":"testing"
-    // })
-    res.sendFile('index.html')
+
+    res.sendFile("views/index.html",{ root: '.' });
  });
 
 router.get('/:userkey', (req, res) => {
     // req.params; 
     // let data = req.params;
     // console.log(data.userkey)
-    res.sendFile('index.html')
+    res.sendFile("views/index.html",{ root: '.' });
 });
 
 router.post('/upload/:userkey', upload.single("image"),async(req, res) => {
