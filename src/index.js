@@ -28,14 +28,14 @@ router.get('/', (req, res) => {
     // res.json({
     //     "hey":"testing"
     // })
-    res.render('index')
+    res.sendFile('index.html')
  });
 
 router.get('/:userkey', (req, res) => {
     // req.params; 
     // let data = req.params;
     // console.log(data.userkey)
-    res.render('index')
+    res.sendFile('index.html')
 });
 
 router.post('/upload/:userkey', upload.single("image"),async(req, res) => {
