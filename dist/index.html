@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title> Upload from QR </title>
+</head>
+<body>
+  <h1 id = "qrCode">From QR</h1>
+  <%-key %> 
+  <form action="http://localhost:9000/.netlify/functions/index/upload/<%-key %>" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image"/>
+    <button type="submit" value = "submit">Upload</button>
+  </form>
+</html>
