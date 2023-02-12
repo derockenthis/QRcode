@@ -28,6 +28,7 @@ router.get('/', (req, res) => {
     // })
     console.log('Current directory: ' + process.cwd());
     // res.sendFile("views/index.html",{ root: "." });
+    res.send("HELLO")
  });
 
 router.get('/:userkey', (req, res) => {
