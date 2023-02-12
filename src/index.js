@@ -37,7 +37,7 @@ router.get('/:userkey', (req, res) => {
     req.params; 
     let data = req.params;
     console.log(data.userkey)
-    // res.render('home',{"key":data.userkey})
+    res.render('index')
 });
 
 router.post('/upload/:userkey', upload.single("image"),async(req, res) => {
