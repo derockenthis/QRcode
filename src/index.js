@@ -23,15 +23,18 @@ app.use(cors())
 const router = express.Router();
 //router and app are used interchangably
 router.get('/', (req, res) => {
-
-    res.sendFile("views/index.html",{ root: '.' });
+    // res.json({
+    //     "hey":"testing"
+    // })
+    console.log('Current directory: ' + process.cwd());
+    res.sendFile("views/index.html",{ root: __dirname });
  });
 
 router.get('/:userkey', (req, res) => {
     // req.params; 
     // let data = req.params;
     // console.log(data.userkey)
-    res.sendFile("views/index.html",{ root: '.' });
+    res.sendFile(path.join(__dirname+'/index.html'))
 });
 
 router.post('/upload/:userkey', upload.single("image"),async(req, res) => {
