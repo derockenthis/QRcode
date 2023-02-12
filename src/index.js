@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
     // res.json({
     //     "hey":"testing"
     // })
-    res.sendFile("views/index.html");
+    res.sendFile("../views/index.html");
     // res.send("HELLO")
  });
 
