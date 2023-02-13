@@ -14,11 +14,6 @@ const app = express();
 const path = require('path');
 const cors = require("cors")
 app.use(cors())
-//static
-
-// app.use(express.static('./public'));
-
-// app.use(cors())
 
 const router = express.Router();
 //router and app are used interchangably
@@ -26,16 +21,9 @@ router.get('/', (req, res) => {
     // res.json({
     //     "hey":"testing"
     // })
-    res.sendFile("../views/index.html");
+    res.send("hello");
     // res.send("HELLO")
  });
-
-router.get('/:userkey', (req, res) => {
-    // req.params; 
-    // let data = req.params;
-    // console.log(data.userkey)
-    res.sendFile(path.join(__dirname+'/index.html'))
-});
 
 router.post('/upload/:userkey', upload.single("image"),async(req, res) => {
     //get userkey
@@ -55,7 +43,7 @@ router.post('/upload/:userkey', upload.single("image"),async(req, res) => {
     //all good
     res.sendStatus(200);
 });
-app.get('/getImage/:userKey',async(req, res) => {
+router.get('/getImage/:userKey',async(req, res) => {
     const key = req.params.userKey
     const checkKey = await getKey(key)
     console.log(checkKey)
